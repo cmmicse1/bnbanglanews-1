@@ -1,14 +1,19 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
 
 const Header = () => {
+  const navigate = useNavigate();
   const today = new Date().toLocaleDateString('bn-BD', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
+
+  const handleCategoryClick = (category: string) => {
+    navigate(`/?category=${category.toLowerCase()}`);
+  };
 
   return (
     <header className="bg-white">
@@ -36,12 +41,54 @@ const Header = () => {
       <div className="border-b">
         <nav className="news-container py-3">
           <ul className="flex items-center justify-center space-x-8 text-sm font-medium">
-            <li><Link to="/" className="hover:text-purple-600">সর্বশেষ</Link></li>
-            <li><Link to="#" className="hover:text-purple-600">রাজনীতি</Link></li>
-            <li><Link to="#" className="hover:text-purple-600">বাণিজ্য</Link></li>
-            <li><Link to="#" className="hover:text-purple-600">খেলা</Link></li>
-            <li><Link to="#" className="hover:text-purple-600">বিনোদন</Link></li>
-            <li><Link to="#" className="hover:text-purple-600">আন্তর্জাতিক</Link></li>
+            <li>
+              <button 
+                onClick={() => handleCategoryClick('সর্বশেষ')} 
+                className="hover:text-purple-600"
+              >
+                সর্বশেষ
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleCategoryClick('রাজনীতি')} 
+                className="hover:text-purple-600"
+              >
+                রাজনীতি
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleCategoryClick('বাণিজ্য')} 
+                className="hover:text-purple-600"
+              >
+                বাণিজ্য
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleCategoryClick('খেলা')} 
+                className="hover:text-purple-600"
+              >
+                খেলা
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleCategoryClick('বিনোদন')} 
+                className="hover:text-purple-600"
+              >
+                বিনোদন
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleCategoryClick('আন্তর্জাতিক')} 
+                className="hover:text-purple-600"
+              >
+                আন্তর্জাতিক
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
