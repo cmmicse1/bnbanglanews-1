@@ -90,26 +90,157 @@
     @apply border-border;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Hind Siliguri', sans-serif;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair;
+  /* Typography */
+  h1 {
+    @apply text-4xl font-bold font-playfair mb-6;
+  }
+  
+  h2 {
+    @apply text-3xl font-bold font-playfair mb-5;
+  }
+  
+  h3 {
+    @apply text-2xl font-bold font-playfair mb-4;
+  }
+  
+  h4 {
+    @apply text-xl font-bold font-playfair mb-3;
+  }
+  
+  h5 {
+    @apply text-lg font-bold font-playfair mb-2;
+  }
+  
+  h6 {
+    @apply text-base font-bold font-playfair mb-2;
   }
   
   p {
-    @apply font-georgia;
+    @apply mb-4 leading-relaxed text-gray-700;
+  }
+
+  /* Lists */
+  ul, ol {
+    @apply pl-6 mb-4;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    @apply mb-2;
+  }
+
+  /* Links */
+  a {
+    @apply text-primary hover:text-primary/80 transition-colors duration-200;
+  }
+
+  /* Blockquotes */
+  blockquote {
+    @apply pl-4 border-l-4 border-primary/20 italic my-4;
+  }
+
+  /* Form Elements */
+  input, textarea, select {
+    @apply rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background 
+           placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 
+           focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  /* Tables */
+  table {
+    @apply w-full border-collapse mb-4;
+  }
+
+  th, td {
+    @apply border border-border px-4 py-2 text-left;
+  }
+
+  th {
+    @apply bg-muted font-semibold;
+  }
+
+  /* Code blocks */
+  pre, code {
+    @apply bg-muted px-2 py-1 rounded text-sm font-mono;
+  }
+
+  /* Horizontal Rule */
+  hr {
+    @apply border-t border-border my-8;
+  }
+
+  /* Images */
+  img {
+    @apply max-w-full h-auto rounded-lg;
+  }
+
+  /* Focus Styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
   }
 }
 
+/* Custom Classes */
 .news-container {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 .article-card {
   @apply transition-all duration-300 hover:shadow-lg;
+}
+
+/* Utility Classes */
+.section-padding {
+  @apply py-12 px-4 sm:px-6 lg:px-8;
+}
+
+.prose {
+  @apply max-w-none;
+}
+
+.fade-in {
+  @apply opacity-0 animate-[fadeIn_0.5s_ease-out_forwards];
+}
+
+.slide-in {
+  @apply transform -translate-x-full animate-[slideIn_0.5s_ease-out_forwards];
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-3xl;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+  
+  h3 {
+    @apply text-xl;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  * {
+    @apply transition-none animate-none;
+  }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
