@@ -31,12 +31,12 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2">
             <Link to="/">
-              <h2 className="text-2xl font-bold font-playfair text-news-primary mb-4">
-                Quill Chronicle
+              <h2 className="text-2xl font-bold text-purple-700 mb-4">
+                BnBangla.news
               </h2>
             </Link>
             <p className="mb-4 text-gray-600">
-              Quality journalism and storytelling since 2025. Bringing you the news that matters.
+              Your trusted source for Bengali news and stories since 2025.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-gray-600 hover:text-news-accent">
@@ -80,8 +80,8 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-200 pt-6 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center">
-          <p>© {currentYear} Quill Chronicle. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Made with ❤️ for quality journalism</p>
+          <p>© {currentYear} BnBangla.news. All rights reserved.</p>
+          <p className="mt-2 md:mt-0">Bringing Bangladesh to the world</p>
         </div>
       </div>
     </footer>
