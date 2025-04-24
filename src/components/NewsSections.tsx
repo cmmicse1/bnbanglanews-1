@@ -15,10 +15,14 @@ const NewsSections = ({ articles }: NewsSectionsProps) => {
   const selectedCategory = searchParams.get('category') || Object.keys(articles)[0];
   const categories = Object.keys(articles);
 
+  const getCategoryTitle = (category: string) => {
+    return category === 'সর্বশেষ' ? 'সর্বশেষ সংবাদ' : `${category} সংবাদ`;
+  };
+
   return (
-    <section className="news-container py-12">
+    <section className="news-container py-8">
       <h2 className="text-2xl md:text-3xl font-bold mb-6">
-        {selectedCategory === 'সর্বশেষ' ? 'সর্বশেষ সংবাদ' : `${selectedCategory} সংবাদ`}
+        {getCategoryTitle(selectedCategory)}
       </h2>
       
       <Tabs defaultValue={selectedCategory} value={selectedCategory} className="w-full">

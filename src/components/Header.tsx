@@ -1,6 +1,16 @@
-
 import { Link, useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
+
+const categories = [
+  { id: 'latest', name: 'সর্বশেষ', path: 'সর্বশেষ' },
+  { id: 'politics', name: 'রাজনীতি', path: 'রাজনীতি' },
+  { id: 'business', name: 'বাণিজ্য', path: 'বাণিজ্য' },
+  { id: 'sports', name: 'খেলা', path: 'খেলা' },
+  { id: 'entertainment', name: 'বিনোদন', path: 'বিনোদন' },
+  { id: 'international', name: 'আন্তর্জাতিক', path: 'আন্তর্জাতিক' },
+  { id: 'lifestyle', name: 'লাইফস্টাইল', path: 'লাইফস্টাইল' },
+  { id: 'tech', name: 'প্রযুক্তি', path: 'প্রযুক্তি' }
+];
 
 const Header = () => {
   const navigate = useNavigate();
@@ -12,11 +22,11 @@ const Header = () => {
   });
 
   const handleCategoryClick = (category: string) => {
-    navigate(`/?category=${category.toLowerCase()}`);
+    navigate(`/?category=${category}`);
   };
 
   return (
-    <header className="bg-white">
+    <header className="bg-white shadow-sm">
       <div className="border-b">
         <div className="news-container py-4">
           <div className="flex justify-between items-center mb-4">
@@ -40,55 +50,17 @@ const Header = () => {
       </div>
       <div className="border-b">
         <nav className="news-container py-3">
-          <ul className="flex items-center justify-center space-x-8 text-sm font-medium">
-            <li>
-              <button 
-                onClick={() => handleCategoryClick('সর্বশেষ')} 
-                className="hover:text-purple-600"
-              >
-                সর্বশেষ
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => handleCategoryClick('রাজনীতি')} 
-                className="hover:text-purple-600"
-              >
-                রাজনীতি
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => handleCategoryClick('বাণিজ্য')} 
-                className="hover:text-purple-600"
-              >
-                বাণিজ্য
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => handleCategoryClick('খেলা')} 
-                className="hover:text-purple-600"
-              >
-                খেলা
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => handleCategoryClick('বিনোদন')} 
-                className="hover:text-purple-600"
-              >
-                বিনোদন
-              </button>
-            </li>
-            <li>
-              <button 
-                onClick={() => handleCategoryClick('আন্তর্জাতিক')} 
-                className="hover:text-purple-600"
-              >
-                আন্তর্জাতিক
-              </button>
-            </li>
+          <ul className="flex items-center justify-between space-x-4 overflow-x-auto whitespace-nowrap">
+            {categories.map(category => (
+              <li key={category.id}>
+                <button 
+                  onClick={() => handleCategoryClick(category.path)} 
+                  className="hover:text-purple-600 px-2 py-1 text-sm font-medium transition-colors"
+                >
+                  {category.name}
+                </button>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
